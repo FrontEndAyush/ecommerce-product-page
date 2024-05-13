@@ -69,9 +69,10 @@ const Card = ({
     setCartShow(false);
   }
   return (
-    <div className="lg:w-[68vw] py-[70px] mx-auto flex justify-between flex-wrap lg:flex-nowrap gap-0">
+    <div className="lg:w-[90vw] py-[70px] mx-auto flex justify-between flex-wrap lg:flex-nowrap gap-0">
       {/* first  */}
-      <div>
+      <div className="">
+        {/* previous icon  */}
         <img
           src="/images/icon-previous.svg"
           className="absolute top-[250px] left-0"
@@ -80,20 +81,21 @@ const Card = ({
         />
         <img
           src={`/cardImages/${img}.jpg`}
-          className="lg:w-11/12  w-screen cursor-none lg:cursor-pointer -mt-10 lg:-mt-0 lg:rounded-lg"
+          className="lg:w-8/12 sm:mx-auto   w-screen cursor-none lg:cursor-pointer -mt-10 lg:-mt-0 lg:rounded-lg"
           alt=""
           onClick={isShowBigImg}
         />
+        {/* next icon  */}
         <img
           src="/images/icon-next.svg"
           className="absolute top-[250px] cursor-pointer right-0"
           alt=""
           onClick={changeImageOnArrowClickNext}
         />
-        <div className="flex  gap-4 mt-3 ">
+        <div className="flex  justify-center gap-3  mt-3 ">
           <img
             src="/cardImages/1th.jpg"
-            className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px] text-center hidden lg:block cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[92px] ${
               img == 1 && "border-2 opacity-70 border-orange-500"
             }`}
             alt=""
@@ -101,7 +103,7 @@ const Card = ({
           />
           <img
             src="/cardImages/2th.jpg"
-            className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px]  hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 2 && "border-2 opacity-70 border-orange-500"
             }`}
             alt=""
@@ -117,7 +119,7 @@ const Card = ({
           />
           <img
             src="/cardImages/4th.jpg"
-            className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px]  hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 4 && "border-2 opacity-70  border-orange-500"
             }`}
             alt=""
@@ -125,11 +127,14 @@ const Card = ({
           />
         </div>
       </div>
+
+      {/* for when you click on product image it will show in bigger in size  */}
       <div
         className={`absolute ${
           showBigImg == true ? "block" : "hidden"
         }  bg-black overflow-auto  bg-opacity-40 flex flex-col  justify-center items-center right-0 bg-gray- top-0 h-full left-0 pl-[0px]`}
       >
+        {/* previous icon  */}
         <img
           src="/images/icon-previous.svg"
           className="absolute top-[300px] left-[470px]"
@@ -141,18 +146,23 @@ const Card = ({
           className="w-4/12 cursor-pointer rounded-lg"
           alt=""
         />
+
+        {/* next incon  */}
         <img
           src="/images/icon-next.svg"
           className="absolute top-[300px] cursor-pointer right-[470px]"
           alt=""
           onClick={changeImageOnArrowClickNext}
         />
+
+        {/* close icon  */}
         <img
           src="/images/icon-close.svg "
           onClick={isShowBigImg}
           className="absolute top-[30px] lg:cursor-pointer w-[20px]  cursor-pointer right-[500px]"
           alt=""
         />
+        {/*  div for show small product icon  */}
         <div className="flex   gap-4  mt-2  ">
           <img
             src="/cardImages/1th.jpg"
@@ -224,6 +234,8 @@ const Card = ({
             </button>
           </div>
         </div>
+
+        {/* for when someone click on cart, cart box is going to show  */}
         {cartShow && (
           <>
             <div className="w-[300px] h-[220px] border  absolute lg:top-[80px] rounded-lg bg-white top-[85px]  right-[20px] lg:right-[210px]">
